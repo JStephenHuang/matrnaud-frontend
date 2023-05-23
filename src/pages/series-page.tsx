@@ -1,11 +1,10 @@
-import { useSeries } from "../hooks/useSeries";
-import { motion } from "framer-motion";
-import { IoArrowDownCircle } from "react-icons/io5";
-
-import Navbar from "../components/navbar";
-import LoadingPage from "../components/loading-page";
 import { IFrame } from "../types/series";
+import { IoArrowDownCircle } from "react-icons/io5";
+import LoadingPage from "../components/loading-page";
+import Navbar from "../components/navbar";
+import { motion } from "framer-motion";
 import { useCheckout } from "../hooks/useCheckout";
+import { useSeries } from "../hooks/useSeries";
 
 const MainFrames = ({ url, rotate }: { url: string; rotate: string }) => {
   return (
@@ -44,7 +43,11 @@ const SeriesPage = () => {
   const { checkout } = useCheckout();
 
   if (series === undefined) return <LoadingPage />;
-  if (series === "No matching documents." || typeof series === "string")
+  if (
+    series === "No matching documents." ||
+    typeof series === "string" ||
+    frames.length < 3
+  )
     return (
       <div className="w-screen h-screen">
         <header className="h-[9.5%]">
