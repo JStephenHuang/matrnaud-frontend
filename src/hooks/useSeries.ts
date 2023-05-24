@@ -1,6 +1,7 @@
+import { IFrame, ISeries } from "../types/series";
 import { useEffect, useState } from "react";
+
 import { backend } from "../helper/backend";
-import { ISeries, IFrame } from "../types/series";
 
 export const useSeries = () => {
   const [series, setSeries] = useState<ISeries | string>();

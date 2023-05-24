@@ -1,8 +1,9 @@
-import { useParams, Link } from "react-router-dom";
-import { usePhoto } from "../hooks/usePhotos";
 import { IoCaretBack, IoCaretForward, IoClose } from "react-icons/io5";
-import { Masonry } from "@mui/lab";
+import { Link, useParams } from "react-router-dom";
+
 import LoadingPage from "../components/loading-page";
+import { Masonry } from "@mui/lab";
+import { usePhoto } from "../hooks/usePhotos";
 
 const PhotoPage = () => {
   const params = useParams();
@@ -13,7 +14,6 @@ const PhotoPage = () => {
 
   if (photo === undefined) return <LoadingPage />;
 
-  console.log(photo.photoshoot);
   return (
     <div className="w-screen">
       <div className="h-screen md:flex">
@@ -40,7 +40,7 @@ const PhotoPage = () => {
         </div>
       </div>
       <div id="photoshoot">
-        <Masonry className="px-8" columns={{ xs: 1, sm: 2 }} spacing={1}>
+        <Masonry className="px-8" columns={{ xs: 2, sm: 3 }} spacing={1}>
           {photo.photoshoot.map((photo, key) => (
             <img key={key} className="w-full h-auto" src={photo.url} />
           ))}

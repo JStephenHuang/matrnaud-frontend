@@ -1,6 +1,7 @@
+import { IoArrowDownCircle, IoCart } from "react-icons/io5";
+
 import { IFrame } from "../types/series";
-import { IoArrowDownCircle } from "react-icons/io5";
-import LoadingPage from "../components/loading-page";
+import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
 import { motion } from "framer-motion";
 import { useCheckout } from "../hooks/useCheckout";
@@ -16,10 +17,9 @@ const MainFrames = ({ url, rotate }: { url: string; rotate: string }) => {
 
 const Frame = ({
   frame,
-  checkout,
 }: {
   frame: IFrame;
-  checkout: (frame: IFrame) => Promise<void>;
+  // checkout: (frame: IFrame) => Promise<void>;
 }) => {
   return (
     <div className="flex flex-col items-center">
@@ -28,24 +28,24 @@ const Frame = ({
       </div>
       <p className="bold mt-2">{frame.title}</p>
       <p className="">{frame.price}$</p>
-      <button
-        className="px-4 py-1 bg-black text-white"
-        onClick={() => checkout(frame)}
+      <Link
+        className="px-4 py-1 bg-black text-white flex items-center hover:bg-white hover:text-black transition-all border border-black"
+        to={`/checkout/${frame.id}`}
       >
-        Buy
-      </button>
+        Buy <IoCart className="ml-2" />
+      </Link>
     </div>
   );
 };
 
 const SeriesPage = () => {
   const { series, frames } = useSeries();
-  const { checkout } = useCheckout();
+  // const { checkout } = useCheckout();
 
-  if (series === undefined) return <LoadingPage />;
   if (
     series === "No matching documents." ||
     typeof series === "string" ||
+    series === undefined ||
     frames.length < 3
   )
     return (
@@ -135,10 +135,22 @@ const SeriesPage = () => {
           <IoArrowDownCircle className="animate-bounce mt-2" size={24} />
         </a>
       </motion.div>
-      <section id="frames" className="p-5 mt-20">
+      <motion.div
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        className="flex flex-col items-center py-1 px-[4%] my-10 text-center md:text-[16px] text-[12px]"
+      >
+        {series.description}
+      </motion.div>
+      <section id="frames" className="p-5 mt-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {frames.map((frame, key) => (
-            <Frame key={key} frame={frame} checkout={checkout} />
+            <Frame
+              key={key}
+              frame={frame}
+              //  checkout={checkout}
+            />
           ))}
         </div>
       </section>

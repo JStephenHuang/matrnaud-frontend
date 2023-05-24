@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { backend } from "../helper/backend";
+import { useState } from "react";
 
 export const useEmail = () => {
   const defaultForm = {
@@ -35,7 +35,7 @@ export const useEmail = () => {
 
     if (res) {
       if (res.data.status === "Success") {
-        setForm({ email: "", name: "", message: "" });
+        setForm(defaultForm);
         setError(res.data.message);
       } else if (res.data.status === "Error") {
         setError(res.data.message);
