@@ -3,8 +3,8 @@ import { IoArrowDownCircle, IoCart } from "react-icons/io5";
 import { IFrame } from "../types/series";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
+import { dropIn } from "../doc/dropIn";
 import { motion } from "framer-motion";
-import { useCheckout } from "../hooks/useCheckout";
 import { useSeries } from "../hooks/useSeries";
 
 const MainFrames = ({ url, rotate }: { url: string; rotate: string }) => {
@@ -22,14 +22,14 @@ const Frame = ({
   // checkout: (frame: IFrame) => Promise<void>;
 }) => {
   return (
-    <div className="flex flex-col items-center">
-      <div className="w-full aspect-square flex items-center justify-center">
+    <div className="inline-flex flex-col items-center">
+      <div className="aspect-square flex items-center justify-center">
         <img className="max-w-full max-h-full" src={frame.url} alt="" />
       </div>
       <p className="bold mt-2">{frame.title}</p>
-      <p className="">{frame.price}$</p>
+      <p>{frame.price}$</p>
       <Link
-        className="px-4 py-1 bg-black text-white flex items-center hover:bg-white hover:text-black transition-all border border-black"
+        className="text-[12px] md:text-[16px] px-4 py-1 bg-black text-white flex items-center hover:bg-white hover:text-black transition-all border border-black"
         to={`/checkout/${frame.id}`}
       >
         Buy <IoCart className="ml-2" />
@@ -58,20 +58,6 @@ const SeriesPage = () => {
         </div>
       </div>
     );
-
-  const dropIn = {
-    hidden: {
-      y: "-10vh",
-      opacity: 0,
-    },
-    visible: {
-      y: "0",
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-      },
-    },
-  };
 
   return (
     <div className="w-full h-screen flex flex-col items-center overflow-y-auto pt-[20%] sm:pt-[13%] lg:pt-[6%]">
@@ -110,7 +96,7 @@ const SeriesPage = () => {
         className="flex flex-col items-center mt-20"
       >
         <a
-          className="flex w-full flex-wrap group justify-center items-center"
+          className="inline-flex flex-wrap group justify-center items-center"
           href="#frames"
         >
           <MainFrames

@@ -2,6 +2,8 @@ import { Link, useParams } from "react-router-dom";
 
 import { IoCaretBack } from "react-icons/io5";
 import LoadingPage from "../components/loading-page";
+import { dropIn } from "../doc/dropIn";
+import { motion } from "framer-motion";
 import { useCheckout } from "../hooks/useCheckout";
 import { useFrame } from "../hooks/useFrame";
 
@@ -26,15 +28,26 @@ const CheckoutPage = () => {
           <IoCaretBack className="group-hover:scale-0 transition-all" />
           <p className="group-hover:-translate-x-2 transition-all">BACK</p>
         </Link>
-        <div className="w-full">
+        <motion.div
+          variants={dropIn}
+          initial="hidden"
+          animate="visible"
+          className="w-full"
+        >
           <p className="bold text-[24px]">{frame.title}</p>
           <p className="text-[32px] regular">CAD$ {frame.price}</p>
           <div className="px-10 py-20 bg-white border-8 border-black">
             <img className="shadow-md" src={frame.url} alt="" />
           </div>
-        </div>
+        </motion.div>
       </div>
-      <div className="md:w-1/2 h-full shadow-lg px-[5%] py-[8%] flex flex-col items-center">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0, transition: { duration: 0.3 } }}
+        transition={{ delay: 0.2 }}
+        className="md:w-1/2 h-full shadow-lg px-[5%] py-[8%] flex flex-col items-center"
+      >
         <p className="text-[30px]">
           Submit your email and Matrnaud himself will arrange the payement.
         </p>
@@ -79,7 +92,7 @@ const CheckoutPage = () => {
             Send
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

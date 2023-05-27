@@ -17,7 +17,7 @@ const App = () => {
       <Route path="/shop" element={<SeriesPage />} />
       <Route path="/bookings" element={<BookingPage />} />
       <Route path="/checkout/:frameId" element={<CheckoutPage />} />
-      <Route path="/infos" element={<MentionPage />} />
+      <Route path="/info" element={<MentionPage />} />
     </Routes>
   );
 };

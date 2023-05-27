@@ -1,12 +1,43 @@
 import { AnimatePresence, motion } from "framer-motion";
+import { IoClose, IoMenu } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
-import { IoMenu, IoClose } from "react-icons/io5";
+
 import { useState } from "react";
 
-const Navbar = () => {
+const LinkList = () => {
   const activeStyle = "text-black mx-2";
   const inactiveStyle = "opacity-[50%] mx-2 hover:opacity-100";
+  return (
+    <>
+      <NavLink
+        className={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+        to="/"
+      >
+        HOME
+      </NavLink>
+      <NavLink
+        className={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+        to="/shop"
+      >
+        SHOP
+      </NavLink>
+      <NavLink
+        className={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+        to="/info"
+      >
+        INFO
+      </NavLink>
+      <NavLink
+        className={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+        to="/bookings"
+      >
+        BOOKINGS
+      </NavLink>
+    </>
+  );
+};
 
+const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
   const dropIn = {
@@ -26,38 +57,12 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed h-[8%] top-0 z-[30] w-full bg-white flex justify-between items-center px-5 border-b border-black">
-        <Link
-          to="/"
-          className="bold text-[20px] md:text-[24px] flex items-center"
-        >
+      <div className="navbar">
+        <Link to="/" className="logo">
           MATRNAUD
         </Link>
         <div className="hidden md:flex text-[14px] regular">
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? activeStyle : inactiveStyle
-            }
-            to="/"
-          >
-            HOME
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? activeStyle : inactiveStyle
-            }
-            to="/shop"
-          >
-            SHOP
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? activeStyle : inactiveStyle
-            }
-            to="/bookings"
-          >
-            BOOKINGS
-          </NavLink>
+          <LinkList />
         </div>
 
         <IoMenu
@@ -72,7 +77,7 @@ const Navbar = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed right-0 top-0 w-1/2 z-[50] h-screen border-l border-black bg-white"
+            className="sidebar"
           >
             <div className="flex items-center h-[8%] px-5">
               <IoClose
@@ -81,30 +86,7 @@ const Navbar = () => {
               />
             </div>
             <div className="flex flex-col regular text-[14px] px-5">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? activeStyle : inactiveStyle
-                }
-                to="/"
-              >
-                HOME
-              </NavLink>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? activeStyle : inactiveStyle
-                }
-                to="/shop"
-              >
-                SHOP
-              </NavLink>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? activeStyle : inactiveStyle
-                }
-                to="/bookings"
-              >
-                BOOKINGS
-              </NavLink>
+              <LinkList />
             </div>
           </motion.div>
         )}

@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
-import { usePhotos } from "../hooks/usePhotos";
-import { IPhoto } from "../types/photo";
-import { motion } from "framer-motion";
-
-import Navbar from "../components/navbar";
-import Masonry from "@mui/lab/Masonry";
 import Footer from "../components/footer";
+import { IPhoto } from "../types/photo";
+import { Link } from "react-router-dom";
+import LoadingPage from "../components/loading-page";
+import Masonry from "@mui/lab/Masonry";
+import Navbar from "../components/navbar";
+import { motion } from "framer-motion";
+import { usePhotos } from "../hooks/usePhotos";
 
 const Photo = ({ photo }: { photo: IPhoto }) => {
   return (
@@ -29,7 +29,7 @@ const Photo = ({ photo }: { photo: IPhoto }) => {
 const Gallery = () => {
   const { photos } = usePhotos();
 
-  if (photos === undefined || photos.length === 0) return <div>Loading</div>;
+  if (photos === undefined || photos.length === 0) return <LoadingPage />;
 
   return (
     <motion.div
