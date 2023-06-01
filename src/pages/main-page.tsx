@@ -1,20 +1,36 @@
+import { Link, ScrollRestoration, useLoaderData } from "react-router-dom";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+
 import Footer from "../components/footer";
 import { IPhoto } from "../types/photo";
-import { Link } from "react-router-dom";
 import LoadingPage from "../components/loading-page";
 import Masonry from "@mui/lab/Masonry";
 import Navbar from "../components/navbar";
-import { motion } from "framer-motion";
 import { usePhotos } from "../hooks/usePhotos";
 
 const Photo = ({ photo }: { photo: IPhoto }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true });
+  const mainControls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      mainControls.start("visible");
+    }
+  }, [isInView]);
+
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.3 } }}
-      transition={{ delay: photo.popularity }}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      initial="hidden"
+      animate={mainControls}
+      transition={{ duration: 0.75, delay: 0.25 }}
       id="gallery-items"
+      ref={ref}
     >
       <Link to={`/photo/${photo.id}`}>
         <img
@@ -27,25 +43,15 @@ const Photo = ({ photo }: { photo: IPhoto }) => {
 };
 
 const Gallery = () => {
-  const { photos } = usePhotos();
-
-  if (photos === undefined || photos.length === 0) return <LoadingPage />;
+  const data = useLoaderData() as IPhoto[];
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.3 } }}
-      transition={{ delay: 0.2 }}
-      className="flex flex-col"
-    >
-      <div className="pl-2">
-        <Masonry columns={{ xs: 2, sm: 4 }} spacing={1}>
-          {photos.map((photo, key) => (
-            <Photo key={key} photo={photo} />
-          ))}
-        </Masonry>
-      </div>
+    <motion.div>
+      <Masonry className="pl-2" columns={{ xs: 2, sm: 4 }} spacing={1}>
+        {data.map((photo, key) => (
+          <Photo key={key} photo={photo} />
+        ))}
+      </Masonry>
 
       <Footer />
     </motion.div>
@@ -55,6 +61,8 @@ const Gallery = () => {
 const MainPage = () => {
   return (
     <div className="h-screen">
+      <ScrollRestoration />
+
       <header className="h-[9%]">
         <Navbar />
       </header>

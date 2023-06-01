@@ -1,7 +1,6 @@
+import Navbar from "../components/navbar";
 import { motion } from "framer-motion";
 import { useEmail } from "../hooks/useEmail";
-
-import Navbar from "../components/navbar";
 
 const BookingPage = () => {
   const { sendEmail, form, onChange, error } = useEmail();
@@ -21,26 +20,34 @@ const BookingPage = () => {
       >
         <div className="px-10 md:w-1/2 my-5 flex flex-col regular">
           <p className="md:text-[28px] text-[18px] semibold">
-            Book a photoshoot with me.
+            Met Réservez votre séance
           </p>
           <p className="mb-5 text-[12px] md:text-[16px]">
-            If you want me to take pictures and portraits for you. Enter you
-            email, you name and the date of when you're planning to do it. Of
-            course it's not guaranteed if I will be able to shoot at the date
-            you chose.
+            Pour réserver une séance photo avec moi, il vous suffit de me
+            contacter par email ou par DM Instagram et nous discuterons de vos
+            idées, de la logistique et des tarifs. Je suis impatient de
+            collaborer avec vous pour créer des photographies uniques. Que ce
+            soit pour des portraits, des événements ou tout autre projet
+            photographique, je m'engage à vous offrir des images
+            exceptionnelles, mettant en valeur votre personnalité et votre
+            histoire.
           </p>
           {error === "Form not filled" && (
-            <p className="text-center text-red-500">Form not filled</p>
+            <p className="text-center text-red-500">Manque d'information.</p>
           )}
 
           {error === "Email not sent." && (
-            <p className="text-center text-red-500">Email not sent</p>
+            <p className="text-center text-red-500">
+              Erreur, email pas envoyer.
+            </p>
           )}
           {error === "Email not valid." && (
-            <p className="text-center text-red-500">Email's format not valid</p>
+            <p className="text-center text-red-500">
+              Format du email n'est pas valid.
+            </p>
           )}
           {error === "Email sent." && (
-            <p className="text-center text-green-500">Email sent</p>
+            <p className="text-center text-green-500">Email envoyé.</p>
           )}
           <input
             className="py-2 border-b focus:border-black outline-none mb-5 transition-all"
@@ -54,7 +61,7 @@ const BookingPage = () => {
             type="text"
             value={form.name}
             onChange={onChange.name}
-            placeholder="Name"
+            placeholder="Nom"
           />
 
           <textarea
@@ -77,7 +84,7 @@ const BookingPage = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.3 } }}
             transition={{ delay: 0.4 }}
-            className="w-full h-auto"
+            className="w-full h-auto pb-10"
             src="https://monde.ccdmd.qc.ca/media/image1024/136372.jpg"
             alt=""
           />

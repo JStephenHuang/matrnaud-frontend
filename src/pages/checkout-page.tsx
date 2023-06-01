@@ -26,7 +26,9 @@ const CheckoutPage = () => {
           to="/shop"
         >
           <IoCaretBack className="group-hover:scale-0 transition-all" />
-          <p className="group-hover:-translate-x-2 transition-all">BACK</p>
+          <p className="group-hover:-translate-x-2 transition-all">
+            PRÉCÉDENTE
+          </p>
         </Link>
         <motion.div
           variants={dropIn}

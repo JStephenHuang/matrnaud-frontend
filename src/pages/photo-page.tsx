@@ -1,4 +1,4 @@
-import { IoCaretBack, IoCaretForward, IoClose } from "react-icons/io5";
+import { IoCaretBack, IoCaretForward } from "react-icons/io5";
 import { Link, useParams } from "react-router-dom";
 
 import LoadingPage from "../components/loading-page";
@@ -24,9 +24,12 @@ const PhotoPage = () => {
           <Link
             className="absolute top-0 left-0 p-2 flex items-center bold text-[12px] group"
             to="/"
+            preventScrollReset={true}
           >
             <IoCaretBack className="group-hover:scale-0 transition-all" />
-            <p className="group-hover:-translate-x-2 transition-all">BACK</p>
+            <p className="group-hover:-translate-x-2 transition-all">
+              PRÉCÉDENTE
+            </p>
           </Link>
           <h1 id="title">{photo.title}</h1>
           <p id="description">{photo.description}</p>
@@ -34,7 +37,7 @@ const PhotoPage = () => {
             href="#photoshoot"
             className="flex items-center semibold mt-5 group"
           >
-            <p className="transition-all">VIEW PHOTOSHOOT</p>
+            <p className="transition-all">VOIR PHOTOSHOOT</p>
             <IoCaretForward className="scale-0 group-hover:scale-100 transition-all" />
           </a>
         </div>

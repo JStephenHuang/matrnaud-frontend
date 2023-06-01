@@ -15,7 +15,7 @@ const Mentions = ({
     <div className="mb-3">
       <a
         href={mention.link}
-        className={`md:text-[20px] regular ${
+        className={`regular ${
           mention.link === "" ? "" : "hover:text-blue-500"
         }`}
       >
@@ -40,7 +40,7 @@ const MentionPage = () => {
             exit={{ opacity: 0, transition: { duration: 0.3 } }}
             transition={{ delay: 0.2 }}
             className="md:w-1/2 h-auto px-3"
-            src="https://media.licdn.com/dms/image/C4E03AQG9VDoz95JwDg/profile-displayphoto-shrink_800_800/0/1652224651279?e=2147483647&v=beta&t=bh3sZLr9cGMSJ_MzoO1vZvD1GjeidjlZSqj4TW6xQsQ"
+            src="https://firebasestorage.googleapis.com/v0/b/matrnaud.appspot.com/o/photo%20de%20moi.jpg?alt=media&token=4b8d9c6a-cb31-4121-b2f3-65248525669a&_gl=1*1gvvtr4*_ga*MTc0MzY2NDU2OS4xNjc3MzcyNzU1*_ga_CW55HF8NVT*MTY4NTU5MTQ2OS42Ni4xLjE2ODU1OTE1OTQuMC4wLjA."
             alt=""
           />
           <motion.div
@@ -50,27 +50,29 @@ const MentionPage = () => {
             transition={{ delay: 0.4 }}
             className="md:w-1/2 px-3"
           >
-            <p className="text-[32px] md:text-[50px] bold mt-2">
+            <p className="text-[28px] md:text-[40px] bold mt-2">
               MATIAS RENAUD
             </p>
-            <p className="regular md:text-[20px]">
-              J'ai toujours prêté une attention particulière à la beauté de mon
-              entourage. Très vite, je découvre une réelle passion pour la
-              photographie mettant en valeurs le contact humain en allant
-              photographier les rues de ma ville. Il y a un an, je me suis lancé
-              dans la photographie de portrait et j'ai eu la chance de
-              collaborer avec plusieurs magnifiques personnes qui se sont
-              prêtées à mon art.
+            <p className="regular">
+              J'ai toujours accordé une grande importance à la beauté de mon
+              environnement. Rapidement, j'ai découvert une véritable passion
+              pour la photographie, en mettant en valeur le contact humain à
+              travers la capture des rues de ma ville. Il y a un an, j'ai décidé
+              de me lancer dans la photographie de portraits, et j'ai eu la
+              chance de collaborer avec plusieurs personnes exceptionnelles qui
+              ont accepté de se prêter à mon art.
             </p>
-            <p className="regular md:text-[20px] my-5">
-              Je suis présentement étudiant en médias numériques et je continue
-              à faire beaucoup de photo dans mes temps libres. Je tiens à
-              continuer de développer mon intérêt pour la photographie à travers
-              l'art du portrait pour peut-être un jour, en faire une carrière.
+            <p className="regular my-5">
+              À présent, j'ai l'opportunité de rentabiliser cette passion et de
+              me constituer peu à peu un réseau de contacts professionnels. En
+              outre, j'ai lancé une agence de photographie et de vidéographie
+              appelée Click Mtl en collaboration avec Louis Grégoire. J'ai
+              l'intention de nourrir cette passion qui grandit en moi et de
+              concrétiser des projets ambitieux qui reflètent mes rêves.
             </p>
             <a
               href="#mentions"
-              className="inline-flex items-center semibold group md:text-[20px]"
+              className="inline-flex items-center semibold group"
             >
               <p className="transition-all">VOIR MES MENTIONS</p>
               <IoCaretForward className="scale-0 group-hover:scale-100 transition-all" />
@@ -86,23 +88,23 @@ const MentionPage = () => {
           className="w-full md:flex"
         >
           <div className="md:w-1/2 px-3">
-            <p className="text-[32px] md:text-[50px] bold mt-2">MENTIONS</p>
+            <p className="text-[28px] md:text-[40px] bold mt-2">MENTIONS</p>
             {mentions.map((mention, key) => (
               <Mentions key={key} mention={mention} />
             ))}
+            Website fait par Stephen huang
           </div>
           <div className="md:w-1/2 px-3">
-            <p className="text-[32px] md:text-[50px] bold mt-2">CONTACT</p>
-            <div className="inline-flex flex-col regular md:text-[20px]">
+            <p className="text-[28px] md:text-[40px] bold mt-2">CONTACT</p>
+            <div className="inline-flex flex-col regular">
               <div className="flex items-center">
                 <SiGmail />
-                <p className="ml-2">matrnaudphoto@gmail.com</p>
+                <p className="ml-2">matiasrenaud04@gmail.com</p>
               </div>
-              <div className="flex items-center">
+              {/* <div className="flex items-center">
                 <SlPhone />
                 <p className="ml-2">514-234-8900</p>
-              </div>
-
+              </div> */}
               <a
                 href="https://www.instagram.com/matrnaud"
                 className="flex items-center hover:opacity-70"
@@ -110,7 +112,6 @@ const MentionPage = () => {
                 <SiInstagram />
                 <p className="ml-2">@matrnaud</p>
               </a>
-
               <a
                 href="https://www.tiktok.com/@matiasrnaud"
                 className="flex items-center hover:opacity-70"

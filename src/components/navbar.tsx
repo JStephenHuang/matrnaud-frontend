@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { IoClose, IoMenu } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
+import { SiInstagram, SiTiktok } from "react-icons/si";
 
 import { useState } from "react";
 
@@ -13,7 +14,7 @@ const LinkList = () => {
         className={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
         to="/"
       >
-        HOME
+        ACCUEIL
       </NavLink>
       <NavLink
         className={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
@@ -31,7 +32,7 @@ const LinkList = () => {
         className={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
         to="/bookings"
       >
-        BOOKINGS
+        RESERVATIONS
       </NavLink>
     </>
   );
@@ -87,6 +88,20 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col regular text-[14px] px-5">
               <LinkList />
+              <div className="flex items-center m-2">
+                <a
+                  className="mr-2 opacity-[50%] hover:opacity-100"
+                  href="https://www.instagram.com/matrnaud"
+                >
+                  <SiInstagram />
+                </a>
+                <a
+                  className="opacity-[50%] hover:opacity-100"
+                  href="https://www.tiktok.com/@matiasrnaud"
+                >
+                  <SiTiktok />
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

@@ -5,11 +5,10 @@ const Footer = () => {
     <div className="w-full md:flex p-10 bg-black text-white hidden mt-auto">
       <div className="flex flex-col regular mx-4">
         <p className="bold text-[20px] mb-2">Contact</p>
-        <p>matrnaudphoto@gmail.com</p>
-        <p>514-234-8900</p>
+        <p>matiasrenaud04@gmail.com</p>
       </div>
       <div className="flex flex-col regular mx-4 ">
-        <p className="bold text-[20px] mb-2">Socials</p>
+        <p className="bold text-[20px] mb-2">Social</p>
         <a
           href="https://www.instagram.com/matrnaud"
           className="flex items-center hover:opacity-70"
