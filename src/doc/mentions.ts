@@ -15,9 +15,9 @@ export const mentions = [
     link: "https://plus.lapresse.ca/screens/b58a8ddd-228c-4f34-a3b1-4fa1cbbac3677C_0.html",
   },
   {
-    title: "Gagnant de ce concours - Choix du Public",
+    title: "Coucours Le Monde en Images",
     date: "2022 - 2023",
-    link: "https://www.v2com-newswire.com/fr/salle-de-presse/categories/design-d-interieur-commercial/dossiers-de-presse/1317-12/lightspeed-offices-phase-3",
+    link: "https://monde.ccdmd.qc.ca/albums_partages/index.fcgi?demande=consulter&id=2896",
   },
   {
     title: "2ème place Concours @bnw_quebec",

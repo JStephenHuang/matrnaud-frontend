@@ -24,15 +24,15 @@ const LinkList = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
-        to="/info"
-      >
-        INFO
-      </NavLink>
-      <NavLink
-        className={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
         to="/bookings"
       >
         RESERVATIONS
+      </NavLink>
+      <NavLink
+        className={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+        to="/info"
+      >
+        INFO
       </NavLink>
     </>
   );

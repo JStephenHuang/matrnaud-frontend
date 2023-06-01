@@ -92,7 +92,7 @@ const MentionPage = () => {
             {mentions.map((mention, key) => (
               <Mentions key={key} mention={mention} />
             ))}
-            Website fait par Stephen huang
+            Site-web fait par Stephen huang
           </div>
           <div className="md:w-1/2 px-3">
             <p className="text-[28px] md:text-[40px] bold mt-2">CONTACT</p>

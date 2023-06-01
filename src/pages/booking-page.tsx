@@ -20,7 +20,7 @@ const BookingPage = () => {
       >
         <div className="px-10 md:w-1/2 my-5 flex flex-col regular">
           <p className="md:text-[28px] text-[18px] semibold">
-            Met Réservez votre séance
+            Réservez votre séance
           </p>
           <p className="mb-5 text-[12px] md:text-[16px]">
             Pour réserver une séance photo avec moi, il vous suffit de me
