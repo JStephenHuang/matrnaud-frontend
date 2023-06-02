@@ -46,7 +46,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/checkout:frameId",
+    path: "/checkout/:frameId",
     element: <CheckoutPage />,
   },
 ]);
