@@ -26,6 +26,7 @@ const router = createBrowserRouter([
       if (res) {
         return res.data.sort(sortByPop);
       }
+      return [];
     },
   },
   {

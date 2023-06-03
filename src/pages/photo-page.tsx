@@ -43,7 +43,7 @@ const PhotoPage = () => {
         </div>
       </div>
       <div id="photoshoot">
-        <Masonry className="px-8" columns={{ xs: 2, sm: 3 }} spacing={1}>
+        <Masonry className="px-8" columns={{ xs: 2, sm: 2, md: 3 }} spacing={1}>
           {photo.photoshoot.map((photo, key) => (
             <img key={key} className="w-full h-auto" src={photo.url} />
           ))}
