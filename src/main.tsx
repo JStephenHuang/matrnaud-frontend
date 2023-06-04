@@ -2,7 +2,6 @@ import "./css/index.css";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { AnimatePresence } from "framer-motion";
 import BookingPage from "./pages/booking-page";
 import CheckoutPage from "./pages/checkout-page";
 import MainPage from "./pages/main-page";
@@ -26,7 +25,6 @@ const router = createBrowserRouter([
       if (res) {
         return res.data.sort(sortByPop);
       }
-      return [];
     },
   },
   {
