@@ -1,8 +1,8 @@
 import { IoCaretBack, IoCaretForward } from "react-icons/io5";
+import { Link, useParams } from "react-router-dom";
 
 import LoadingPage from "../components/loading-page";
 import { Masonry } from "@mui/lab";
-import { useParams } from "react-router-dom";
 import { usePhoto } from "../hooks/usePhotos";
 
 const PhotoPage = () => {
@@ -21,15 +21,6 @@ const PhotoPage = () => {
           <img className="max-h-full max-w-full" src={photo.mainPhoto} alt="" />
         </div>
         <div className="md:w-1/2 px-20 flex flex-col justify-center items-center">
-          <button
-            className="absolute top-0 left-0 p-2 flex items-center bold text-[12px] group"
-            onClick={() => window.history.back()}
-          >
-            <IoCaretBack className="group-hover:scale-0 transition-all" />
-            <p className="group-hover:-translate-x-2 transition-all">
-              PRÉCÉDENTE
-            </p>
-          </button>
           <h1 id="title">{photo.title}</h1>
           <p id="description">{photo.description}</p>
           <a

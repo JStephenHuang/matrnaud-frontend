@@ -1,6 +1,7 @@
 import { Link, ScrollRestoration, useLoaderData } from "react-router-dom";
+import { delayFooterAppearance, timeout } from "../helper/delay";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Footer from "../components/footer";
 import { IPhoto } from "../types/photo";
@@ -54,6 +55,9 @@ const Photo = ({ photo }: { photo: IPhoto }) => {
 
 const Gallery = () => {
   const data = useLoaderData() as IPhoto[];
+  const [showFooter, setShowFooter] = useState<boolean>(false);
+
+  delayFooterAppearance(setShowFooter);
 
   return (
     <div>
@@ -63,7 +67,7 @@ const Gallery = () => {
         ))}
       </Masonry>
 
-      <Footer />
+      {showFooter ? <Footer /> : <div>hello</div>}
     </div>
   );
 };

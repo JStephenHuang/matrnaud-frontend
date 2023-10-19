@@ -1,14 +1,14 @@
-import { SiInstagram, SiTiktok } from "react-icons/si";
+import { SiGmail, SiInstagram, SiTiktok } from "react-icons/si";
 
 const Footer = () => {
   return (
     <div className="w-full md:flex p-10 bg-black text-white hidden mt-auto">
-      <div className="flex flex-col regular mx-4">
-        <p className="bold text-[20px] mb-2">Contact</p>
-        <p>matiasrenaud04@gmail.com</p>
-      </div>
       <div className="flex flex-col regular mx-4 ">
         <p className="bold text-[20px] mb-2">Social</p>
+        <div className="flex items-center regular">
+          <SiGmail />
+          <p className="ml-2">matiasrenaud04@gmail.com</p>
+        </div>
         <a
           href="https://www.instagram.com/matrnaud"
           className="flex items-center hover:opacity-70"

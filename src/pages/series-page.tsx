@@ -54,7 +54,7 @@ const SeriesPage = () => {
           <Navbar />
         </header>
         <div className="flex flex-col w-full items-center">
-          <p className="mt-5 text-[24px]">Series for sale coming soon...</p>
+          <p className="mt-5 md:text-[24px]">Series for sale coming soon...</p>
         </div>
       </div>
     );

@@ -32,7 +32,7 @@ const MentionPage = () => {
       <header className="h-[9.5%]">
         <Navbar />
       </header>
-      <div className="w-full flex flex-col">
+      <div className="w-full flex flex-col pb-10">
         <section className="w-full md:flex">
           <motion.img
             initial={{ opacity: 0 }}
@@ -92,7 +92,6 @@ const MentionPage = () => {
             {mentions.map((mention, key) => (
               <Mentions key={key} mention={mention} />
             ))}
-            Site-web fait par Stephen huang
           </div>
           <div className="md:w-1/2 px-3">
             <p className="text-[28px] md:text-[40px] bold mt-2">CONTACT</p>
@@ -107,7 +106,7 @@ const MentionPage = () => {
               </div> */}
               <a
                 href="https://www.instagram.com/matrnaud"
-                className="flex items-center hover:opacity-70"
+                className="flex items-center hover:opacity-70 my-2"
               >
                 <SiInstagram />
                 <p className="ml-2">@matrnaud</p>
