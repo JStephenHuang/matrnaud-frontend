@@ -1,5 +1,4 @@
 import { Link, ScrollRestoration, useLoaderData } from "react-router-dom";
-import { delayFooterAppearance, timeout } from "../helper/delay";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
@@ -7,6 +6,7 @@ import Footer from "../components/footer";
 import { IPhoto } from "../types/photo";
 import Masonry from "@mui/lab/Masonry";
 import Navbar from "../components/navbar";
+import { delayFooterAppearance } from "../helper/delay";
 
 const Photo = ({ photo }: { photo: IPhoto }) => {
   const ref = useRef<HTMLDivElement>(null);
