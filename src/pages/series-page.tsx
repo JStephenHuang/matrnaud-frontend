@@ -125,7 +125,7 @@ const SeriesPage = () => {
         variants={dropIn}
         initial="hidden"
         animate="visible"
-        className="flex flex-col items-center py-1 px-[4%] my-10 text-center md:text-[16px] text-[12px]"
+        className="w-1/2 my-10 text-center md:text-[16px] text-[12px]"
       >
         {series.description}
       </motion.div>
