@@ -2,6 +2,7 @@ import { IoArrowDownCircle, IoCart } from "react-icons/io5";
 
 import { IFrame } from "../types/series";
 import { Link } from "react-router-dom";
+import LoadingPage from "../components/loading-page";
 import Navbar from "../components/navbar";
 import { dropIn } from "../doc/dropIn";
 import { motion } from "framer-motion";
@@ -41,11 +42,11 @@ const Frame = ({
 const SeriesPage = () => {
   const { series, frames } = useSeries();
   // const { checkout } = useCheckout();
+  if (series === undefined) return <LoadingPage />;
 
   if (
     series === "No matching documents." ||
     typeof series === "string" ||
-    series === undefined ||
     frames.length < 3
   )
     return (
