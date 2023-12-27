@@ -1,9 +1,12 @@
 import Navbar from "../components/navbar";
 import { motion } from "framer-motion";
 import { useEmail } from "../hooks/useEmail";
+import { useInfo } from "../hooks/useInfo";
 
 const BookingPage = () => {
   const { sendEmail, form, onChange, error } = useEmail();
+
+  const { bookingDescription } = useInfo();
 
   return (
     <div className="h-screen">
@@ -23,14 +26,7 @@ const BookingPage = () => {
             Réservez votre séance
           </p>
           <p className="mb-5 text-[12px] md:text-[16px]">
-            Pour réserver une séance photo avec moi, il vous suffit de me
-            contacter par email ou par DM Instagram et nous discuterons de vos
-            idées, de la logistique et des tarifs. Je suis impatient de
-            collaborer avec vous pour créer des photographies uniques. Que ce
-            soit pour des portraits, des événements ou tout autre projet
-            photographique, je m'engage à vous offrir des images
-            exceptionnelles, mettant en valeur votre personnalité et votre
-            histoire.
+            {bookingDescription?.content}
           </p>
           {error === "Form not filled" && (
             <p className="text-center text-red-500">Manque d'information.</p>

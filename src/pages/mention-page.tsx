@@ -2,9 +2,9 @@ import { SiGmail, SiInstagram, SiTiktok } from "react-icons/si";
 
 import { IoCaretForward } from "react-icons/io5";
 import Navbar from "../components/navbar";
-import { SlPhone } from "react-icons/sl";
 import { mentions } from "../doc/mentions";
 import { motion } from "framer-motion";
+import { useInfo } from "../hooks/useInfo";
 
 const Mentions = ({
   mention,
@@ -27,6 +27,7 @@ const Mentions = ({
 };
 
 const MentionPage = () => {
+  const { bio } = useInfo();
   return (
     <div className="h-screen">
       <header className="h-[9.5%]">
@@ -53,28 +54,12 @@ const MentionPage = () => {
             <p className="text-[28px] md:text-[40px] bold mt-2">
               MATIAS RENAUD
             </p>
-            <p className="regular">
-              J'ai toujours accordé une grande importance à la beauté de mon
-              environnement. Rapidement, j'ai découvert une véritable passion
-              pour la photographie, en mettant en valeur le contact humain à
-              travers la capture des rues de ma ville. Il y a un an, j'ai décidé
-              de me lancer dans la photographie de portraits, et j'ai eu la
-              chance de collaborer avec plusieurs personnes exceptionnelles qui
-              ont accepté de se prêter à mon art.
-            </p>
-            <p className="regular my-5">
-              À présent, j'ai l'opportunité de rentabiliser cette passion et de
-              me constituer peu à peu un réseau de contacts professionnels. En
-              outre, j'ai lancé une agence de photographie et de vidéographie
-              appelée Click Mtl en collaboration avec Louis Grégoire. J'ai
-              l'intention de nourrir cette passion qui grandit en moi et de
-              concrétiser des projets ambitieux qui reflètent mes rêves.
-            </p>
+            <p className="regular whitespace-pre-wrap">{bio?.content}</p>
             <a
               href="#mentions"
               className="inline-flex items-center semibold group"
             >
-              <p className="transition-all">VOIR MES MENTIONS</p>
+              <p className="transition-all mt-5">VOIR MES MENTIONS</p>
               <IoCaretForward className="scale-0 group-hover:scale-100 transition-all" />
             </a>
           </motion.div>
