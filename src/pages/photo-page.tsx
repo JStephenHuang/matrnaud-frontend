@@ -29,7 +29,7 @@ const PhotoPage = () => {
             {photo.title}
           </h1>
           <p className="text-center" id="description">
-            {photo.description}
+            {photo.description.split("videos:")[0]}
           </p>
           <a
             href="#photoshoot"
