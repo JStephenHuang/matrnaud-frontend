@@ -61,8 +61,9 @@ const SeriesPage = () => {
     );
 
   return (
-    <div className="w-full h-screen flex flex-col items-center overflow-y-auto pt-[20%] sm:pt-[13%] lg:pt-[6%]">
+    <div className="w-full flex flex-col items-center overflow-y-auto pt-[20%] sm:pt-[13%] lg:pt-[6%]">
       <Navbar />
+      <div className="h-[4rem]"></div>
       <motion.div
         variants={dropIn}
         initial="hidden"

@@ -1,4 +1,4 @@
-@import url('clash-display.css');
+@import url("clash-display.css");
 
 @tailwind base;
 @tailwind components;
@@ -16,68 +16,67 @@ font-family: 'ClashDisplay-Semibold';
 font-family: 'ClashDisplay-Bold'; 
 */
 
-*, html {
+*,
+html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'ClashDisplay-Medium';
-
+  font-family: "ClashDisplay-Medium";
 }
 
 @layer components {
   .bold {
-    font-family: 'ClashDisplay-Bold'; 
+    font-family: "ClashDisplay-Bold";
   }
 
   .semibold {
-    font-family: 'ClashDisplay-Semibold';
+    font-family: "ClashDisplay-Semibold";
   }
 
   .regular {
-    font-family: 'ClashDisplay-Regular';
+    font-family: "ClashDisplay-Regular";
   }
 
   .medium {
-    font-family: 'ClashDisplay-Medium';
+    font-family: "ClashDisplay-Medium";
   }
 }
 
-
 #title {
-  font-family: 'ClashDisplay-Bold';
-  @apply md:text-[48px] text-center text-[32px]
+  font-family: "ClashDisplay-Bold";
+  @apply md:text-[48px] text-center text-[32px];
 }
 
 #description {
-  font-family: 'ClashDisplay-Light';
-  @apply md:text-[16px] text-[12px]
+  font-family: "ClashDisplay-Light";
+  @apply md:text-[16px] text-[12px];
 }
 
 #gallery {
-  @apply columns-2 gap-3 md:columns-4 px-3
+  @apply columns-2 gap-3 md:columns-4 px-3;
 }
 
-#navbar { 
-  font-family: 'ClashDisplay-Medium';
+#navbar {
+  font-family: "ClashDisplay-Medium";
 }
 
 /* Navbar */
 
 @layer components {
   .navbar {
-    @apply fixed h-[8%] top-0 z-[30] w-full
+    @apply fixed h-[4rem] top-0 left-0 z-[30] w-screen
     bg-white flex justify-between items-center
-    px-5
+    px-8;
   }
-  
+
   .logo {
     @apply bold text-[20px] md:text-[24px] 
-    flex items-center
+    flex items-center;
   }
 
   .sidebar {
     @apply fixed right-0 top-0 w-1/2 z-[50] h-screen 
-     bg-white
+     bg-white;
   }
 }

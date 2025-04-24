@@ -9,17 +9,15 @@ const BookingPage = () => {
   const { bookingDescription } = useInfo();
 
   return (
-    <div className="h-screen">
-      <header className="h-[9.5%]">
-        <Navbar />
-      </header>
-
+    <div className="px-8">
+      <Navbar />
+      <header className="h-[4rem]"></header>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
         transition={{ delay: 0.2 }}
-        className="w-full md:flex px-3"
+        className="w-full flex flex-col md:flex-row gap-8"
       >
         <div className="px-10 md:w-1/2 my-5 flex flex-col regular">
           <p className="md:text-[28px] text-[18px] semibold">

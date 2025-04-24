@@ -74,15 +74,13 @@ const Gallery = () => {
 
 const MainPage = () => {
   return (
-    <div className="h-screen">
-      <header className="h-[9%]">
-        <Navbar />
-      </header>
+    <div className="">
+      <Navbar />
 
       {/* <div className="h-[100rem]">
         <div className="h-1/2 bg-red-500"></div>
       </div> */}
-
+      <div className="h-[4rem]"></div>
       <Gallery />
     </div>
   );
