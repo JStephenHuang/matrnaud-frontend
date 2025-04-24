@@ -14,7 +14,10 @@ const PhotoPage = () => {
 
   if (photo === undefined) return <LoadingPage />;
 
-  const links = photo.description?.split("videos:")[1]?.split(",") ?? undefined;
+  const keyToSplit = "(videos):";
+
+  const links =
+    photo.description?.split(keyToSplit)[1]?.split(",") ?? undefined;
   // const links = linksRaw.split("videos:")[1]?.split(",") ?? undefined;
 
   return (
@@ -29,7 +32,7 @@ const PhotoPage = () => {
             {photo.title}
           </h1>
           <p className="text-center" id="description">
-            {photo.description.split("videos:")[0]}
+            {photo.description.split(keyToSplit)[0]}
           </p>
           <a
             href="#photoshoot"
